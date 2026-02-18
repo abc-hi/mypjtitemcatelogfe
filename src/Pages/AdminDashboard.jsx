@@ -32,7 +32,9 @@ const AdminDashboard = () => {
 
   const getProducts = async () => {
     try {
-      const res = await axios("http://localhost:5000/api/item/get-item")
+      // const res = await axios("http://localhost:5000/api/item/get-item")
+            const res = await axios("https://mypjtitemcatelogbe.onrender.com/api/item/get-item")
+
       const sortedData = res.data.data.sort((a, b) => a.id - b.id)
       setFetchdata(sortedData);
 

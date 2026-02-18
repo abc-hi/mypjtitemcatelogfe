@@ -21,7 +21,9 @@ const Signin = () => {
     const payloads = { username, password }
     try {
 
-      const res = await axios.post("http://localhost:5000/api/item/login-user", payloads)
+      // const res = await axios.post("http://localhost:5000/api/item/login-user", payloads)
+            const res = await axios.post("https://mypjtitemcatelogbe.onrender.com/api/item/login-user", payloads)
+
       setResponseMsg(res.data.message || "login successful")
 
       setToken(res.data.token)
@@ -29,7 +31,9 @@ const Signin = () => {
       if (location.state?.fromProductDetails && location.state?.productId) {
         try {
           const addRes = await axios.post(
-            `http://localhost:5000/api/item/add-cart/${location.state.productId}`,
+            // `http://localhost:5000/api/item/add-cart/${location.state.productId}`,
+                        `https://mypjtitemcatelogbe.onrender.com/api/item/add-cart/${location.state.productId}`,
+
             {},
             {
               headers: {
@@ -53,7 +57,9 @@ const Signin = () => {
   const registerUser = async () => {
     const registerPayloads = { email, username, password }
     try {
-      const res = await axios.post("http://localhost:5000/api/item/register-user", registerPayloads)
+      // const res = await axios.post("http://localhost:5000/api/item/register-user", registerPayloads)
+            const res = await axios.post("https://mypjtitemcatelogbe.onrender.com/api/item/register-user", registerPayloads)
+
       setResponseMsg(res.data.msg || "Register successful")
 
 

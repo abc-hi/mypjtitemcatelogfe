@@ -6,7 +6,9 @@ const Admin_DeleteProduct = ({ deleteEachPro, setDeleteEachProduct, getProducts 
 
   const deleteData = async (id) => {
     try {
-      const res = await axios.delete(`http://localhost:5000/api/item/delete-item/${id}`)
+      // const res = await axios.delete(`http://localhost:5000/api/item/delete-item/${id}`)
+            const res = await axios.delete(`https://mypjtitemcatelogbe.onrender.com/api/item/delete-item/${id}`)
+
       setDeleteEachProduct(res.data.data)
       getProducts()
     } catch (error) {

@@ -15,7 +15,9 @@ const Cart = () => {
 
   const removeCartProducts = async (productId) => {
     try {
-      const res = await axios.delete(`http://localhost:5000/api/item/remove-cart/${productId}`,
+      // const res = await axios.delete(`http://localhost:5000/api/item/remove-cart/${productId}`,
+            const res = await axios.delete(`https://mypjtitemcatelogbe.onrender.com/api/item/remove-cart/${productId}`,
+
         {
           headers: {
             Authorization: `Bearer ${token}`

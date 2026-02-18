@@ -13,7 +13,9 @@ const ProductDetails = () => {
     const getProductsById = async (id) => {
 
         try {
-            const res = await axios(`http://localhost:5000/api/item/get-itemById/${id}`
+            // const res = await axios(`http://localhost:5000/api/item/get-itemById/${id}`
+                            const res = await axios(`https://mypjtitemcatelogbe.onrender.com/api/item/get-itemById/${id}`
+
             )
             setUserSelectedProduct(res.data.data)
 
@@ -30,7 +32,9 @@ const ProductDetails = () => {
 
     const addCartProducts = async (productId) => {
         try {
-            const res = await axios.post(`http://localhost:5000/api/item/add-cart/${productId}`, {},
+            // const res = await axios.post(`http://localhost:5000/api/item/add-cart/${productId}`, {},
+                        const res = await axios.post(`https://mypjtitemcatelogbe.onrender.com/api/item/add-cart/${productId}`, {},
+
                 {
                     headers: {
                         Authorization: `Bearer ${token}`

@@ -49,7 +49,9 @@ const Context = ({ children }) => {
 
   const addCartProducts = async (productId) => {
     try {
-      const res = await axios.post(`http://localhost:5000/api/item/add-cart/${productId}`, {},
+      // const res = await axios.post(`http://localhost:5000/api/item/add-cart/${productId}`, {},
+              const res = await axios.post(`https://mypjtitemcatelogbe.onrender.com/api/item/add-cart/${productId}`, {},
+
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -63,7 +65,9 @@ const Context = ({ children }) => {
   }
   const getCart = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/item/get-cart', {
+      // const res = await axios.get('http://localhost:5000/api/item/get-cart', {
+              const res = await axios.get('https://mypjtitemcatelogbe.onrender.com/api/item/get-cart', {
+
         headers: {
           Authorization: `Bearer ${token}`,
         },

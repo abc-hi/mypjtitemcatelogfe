@@ -8,7 +8,9 @@ const Ladieswear = () => {
   const { userViewProducts, setUserViewProducts } = useContext(myContext)
   const getProducts = async () => {
     try {
-      const res = await axios("http://localhost:5000/api/item/get-item")
+      // const res = await axios("http://localhost:5000/api/item/get-item")
+            const res = await axios("https://mypjtitemcatelogbe.onrender.com/api/item/get-item")
+
       const filteredData = res.data.data.filter(item => item.category === "Ladies Wear")
       const sortedData = filteredData.sort((a, b) => a.id - b.id);
       setUserViewProducts(sortedData)

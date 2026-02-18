@@ -3,6 +3,7 @@ import { myContext } from './Context'
 import axios from 'axios'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import Loading from './Loading.jsx'
 
 
 const Home = () => {
@@ -14,7 +15,9 @@ const Home = () => {
 
   const getProducts = async () => {
     try {
-      const res = await axios("http://localhost:5000/api/item/get-item")
+      // const res = await axios("http://localhost:5000/api/item/get-item")
+            const res = await axios("https://mypjtitemcatelogbe.onrender.com/api/item/get-item")
+
       const sortedData = res.data.data.sort((a, b) => a.id - b.id)
       setFetchdata(sortedData);
 
@@ -28,7 +31,10 @@ const Home = () => {
       {/* Carousel Section */}
       <div id="carouselExample" className="carousel slide" data-bs-ride="carousel">
         <div className="carousel-inner">
-          {fetchData.map((item, index) => (
+          {fetchData.length === 0 ? (
+    <Loading /> // Show loader while data is being fetched
+  ) : (
+    fetchData.map((item, index) =>  (
             <div key={index} className={`carousel-item ${index === 0 ? "active" : ""}`}>
               <div
                 className="d-block w-100"
@@ -87,7 +93,7 @@ const Home = () => {
                 </Link>
               </div>
             </div>
-          ))}
+          )))}
         </div>
 
         {/* Carousel Controls */}

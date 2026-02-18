@@ -7,7 +7,9 @@ const Admin_Edit = ({ editEachPro, setEditEachProduct, getProducts }) => {
   const editData = async (item) => {
     const editPayloads = { name: item.name, image: item.image, category: item.category, new_price: item.new_price, old_price: item.old_price, date: item.date, stock: item.stock, size: item.size, color: item.color }
     try {
-      const res = await axios.put(`http://localhost:5000/api/item/update-item/${item.id}`, editPayloads);
+      // const res = await axios.put(`http://localhost:5000/api/item/update-item/${item.id}`, editPayloads);
+            const res = await axios.put(`https://mypjtitemcatelogbe.onrender.com/api/item/update-item/${item.id}`, editPayloads);
+// 
       setEditEachProduct(res.data.data);
       getProducts()
 

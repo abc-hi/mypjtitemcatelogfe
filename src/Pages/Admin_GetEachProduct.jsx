@@ -4,7 +4,9 @@ import axios from 'axios'
 const Admin_GetEachProduct = ({ readEachPro, setReadEachProduct, getProducts }) => {
   const getProductsById = async (id) => {
     try {
-      const res = await axios(`http://localhost:5000/api/item/get-itemById/${id}`)
+      // const res = await axios(`http://localhost:5000/api/item/get-itemById/${id}`)
+            const res = await axios(`https://mypjtitemcatelogbe.onrender.com/api/item/get-itemById/${id}`)
+
       setReadEachProduct(res.data.data)
       getProducts()
     } catch (error) {

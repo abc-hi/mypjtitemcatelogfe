@@ -5,7 +5,9 @@ const Admin_Create = ({ newPro, setNewProduct, getProducts }) => {
   const newProduct = async () => {
 
     try {
-      const res = await axios.post("http://localhost:5000/api/item/create-item", newPro)
+      // const res = await axios.post("http://localhost:5000/api/item/create-item", newPro)
+            const res = await axios.post("https://mypjtitemcatelogbe.onrender.com/api/item/create-item", newPro)
+
       console.log("Created:", res.data);
 
       setNewProduct({
