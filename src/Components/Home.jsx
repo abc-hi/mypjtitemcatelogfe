@@ -119,8 +119,15 @@ const Home = () => {
 
       <div className="container mt-4">
         <div className="row">
+          
           {/* above both is display products in row wise */}
-          {fetchData.map((item, index) => (
+
+           {fetchData.length === 0 ? (
+    <Loading /> // Show loader while data is being fetched
+  ) : (
+
+
+          fetchData.map((item, index) => (
             <div key={index} className="col-md-4 col-sm-6 mb-4" >
               {/* bootstrap gridstyle for responsive layout */}
               {/* bootstrap card is used here */}
@@ -132,11 +139,11 @@ const Home = () => {
                     <p className="card-text">{item.name}</p>
                     <p className="card-text">{item.category}</p>
                     <p className="card-text">€{item.new_price}</p>
-                    <p className="card-text">€{item.old_price}</p>
+                    <p className="card-text" style={{textDecoration: "line-through"}}>€{item.old_price}</p>
                   </div></Link>
               </div>
             </div>
-          ))}
+          )))}
         </div>
       </div></>
   )
