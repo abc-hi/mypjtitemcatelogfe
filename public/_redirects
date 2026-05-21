@@ -1,7 +1,1 @@
 /* /index.html 200
-<!--  <!-- without _redirects locally it works because the dev server already supports React routing, but in deployment (Netlify) you need it to handle refresh and direct URL access so we go for _redirect file to tell No matter what URL is requested, always send index.html.
- After index.html loads:
-
-React app starts
-React Router reads URL (/adminlogin)
-shows correct page --> -->
