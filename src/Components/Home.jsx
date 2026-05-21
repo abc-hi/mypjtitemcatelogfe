@@ -139,7 +139,7 @@ const Home = () => {
                     <p className="card-text">{item.name}</p>
                     <p className="card-text">{item.category}</p>
                     <p className="card-text">€{item.new_price}</p>
-                    <p className="card-text" style={{textDecoration: "line-through"}}>€{item.old_price}</p>
+                    <p className="card-text" style={{textDecoration: "line-through",color: "gray"}}>€{item.old_price}</p>
                   </div></Link>
               </div>
             </div>

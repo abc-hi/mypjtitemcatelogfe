@@ -30,6 +30,8 @@ const ProductDetails = () => {
         getProductsById(id)
     }, [id])
 
+
+    // addcrtproducts is already in useContext.apply.so below is duplicate code we can delete this and share from usecontext to this comp
     const addCartProducts = async (productId) => {
         try {
             // const res = await axios.post(`http://localhost:5000/api/item/add-cart/${productId}`, {},
@@ -42,7 +44,7 @@ const ProductDetails = () => {
                 },
             )
             setCartItems(res.data.items)
-            await getCart()
+            await getCart()       //Fetches the updated cart again from backend.
 
         } catch (error) {
             console.log(error)
@@ -80,6 +82,13 @@ const ProductDetails = () => {
                                 <h5 className="card-text">Color:{userSelectedProduct.color}</h5 >
 
                                 <button onClick={() => handleCartAddSubmit(userSelectedProduct)} style={{ background: 'gold', borderRadius: '3px', padding: '4px', cursor: 'pointer' }}>AddToCart</button>
+                            {/* onClick={() => handleCartAddSubmit(userSelectedProduct)}- run only when clicked
+                            onClick={handleCartAddSubmit(userSelectedProduct)}- run immediately */}
+                            {/* There each button has a different product, so passing userSelectedProduct becomes useful.
+                            product is just a parameter name, here product == userSelectedProduct
+You are manually passing userSelectedProduct
+It helps make the function reusable and clean */}
+                            
                             </div>
                         </div>
                     </div>

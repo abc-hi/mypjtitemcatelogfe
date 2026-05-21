@@ -27,7 +27,11 @@ const Context = ({ children }) => {
     if (storedUsername) {
       setUserName(storedUsername);
     }
-  }, []);
+  }, []);     //✔ gets saved login data
+               // ✔ restores it into React
+              // ✔ keeps user logged in after refresh because after refresh react states lose its memory
+  // i.e restore login after refresh
+
 
   //  Keep localStorage in sync with token state
   useEffect(() => {
@@ -45,7 +49,13 @@ const Context = ({ children }) => {
       setCartItems([])
 
     }
-  }, [token]);
+  }, [token]);                           //Because it keeps everything in sync:
+
+                                        // Action	What happens
+                                              // Login	store token + load cart
+                                              // Logout	clear storage + clear cart
+                                               //“Whenever login status changes, update browser storage and cart automatically”
+                                               //react to login/logout changes
 
   const addCartProducts = async (productId) => {
     try {

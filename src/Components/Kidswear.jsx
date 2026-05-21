@@ -12,6 +12,7 @@ const Kidswear = () => {
 
       const filteredData = res.data.data.filter(item => item.category === "Kid's Wear")
       const sortedData = filteredData.sort((a, b) => a.id - b.id);
+      // here for each item id is manually created and here based on id's ascending order it displays
       setUserViewProducts(sortedData)
     }
     catch (error) {
