@@ -60,7 +60,7 @@ const Signin = () => {
       // const res = await axios.post("http://localhost:5000/api/item/register-user", registerPayloads)
             const res = await axios.post("https://mypjtitemcatelogbe.onrender.com/api/item/register-user", registerPayloads)
 
-      setResponseMsg(res.data.msg || "Register successful")
+      setResponseMsg(res.data.message)
 
 
     } catch (error) {
